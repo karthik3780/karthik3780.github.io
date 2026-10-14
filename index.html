@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karthik Andhavarapu — Open-source contributions</title>
+<meta name="description" content="Karthik Andhavarapu, Lead Engineer, Senior at Qualcomm, Hyderabad. Linux kernel display-driver engineer. 141 public commits to Qualcomm’s Linux display drivers on CodeLinaro, 2020–2026: LSR and HFI drivers, SoC bring-up, performance, power and debug infrastructure.">
+<style>
+  :root{
+    --bg:#fbfaf7; --surface:#ffffff; --ink:#1f2328; --muted:#5f6670; --faint:#8b929a;
+    --rule:#e6e2da; --accent:#2f5d62; --accent-soft:#e8efee;
+    --serif:"Source Serif Pro","Source Serif 4","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,"IBM Plex Mono",Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s}
+  a:hover,a:focus-visible{border-bottom-color:currentColor}
+  a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:860px;margin:0 auto;padding:0 28px}
+  header.top{padding:96px 0 8px}
+  .eyebrow{font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 22px}
+  h1{font:400 clamp(40px,6.4vw,60px)/1.05 var(--serif);letter-spacing:-.015em;margin:0 0 14px}
+  .role{font:400 19px/1.5 var(--serif);font-style:italic;color:var(--muted);margin:0 0 26px}
+  .lede{font-size:18px;line-height:1.7;max-width:640px;margin:0 0 30px}
+  .links a{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:15px;padding:9px 16px;border:1px solid var(--accent);border-radius:999px}
+  .links a:hover{background:var(--accent);color:#fff}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:56px 0 0}
+  .stat{padding:26px 0 24px}
+  .stat+.stat{padding-left:28px;border-left:1px solid var(--rule)}
+  .stat b{display:block;font:400 34px/1.1 var(--serif);color:var(--ink)}
+  .stat span{font-size:13px;color:var(--muted);letter-spacing:.02em}
+  section{padding:56px 0 8px}
+  h2{font:400 28px/1.2 var(--serif);margin:0 0 6px}
+  .section-note{color:var(--muted);margin:0 0 30px;font-size:15px}
+  .hl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .hl{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:24px 24px 20px;display:flex;flex-direction:column}
+  .hl .meta{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:0 0 10px}
+  .hl h3{font:600 20px/1.3 var(--serif);margin:0 0 8px}
+  .hl p{margin:0 0 14px;color:#3b4148;font-size:15px}
+  .hl .hl-link{margin:auto 0 0;font-size:14px}
+  .sha{font:13px var(--mono)}
+  details{border-top:1px solid var(--rule)}
+  details:last-of-type{border-bottom:1px solid var(--rule)}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:20px 0}
+  summary::-webkit-details-marker{display:none}
+  .area-name{font:400 20px/1.3 var(--serif);display:flex;align-items:baseline;gap:12px}
+  .area-name::before{content:"+";font:300 20px/1 var(--sans);color:var(--accent);width:14px;display:inline-block;transition:transform .2s}
+  details[open] .area-name::before{content:"−"}
+  .area-count{font-size:13px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .area-desc{margin:-6px 0 16px 26px;color:var(--muted);font-size:15px;max-width:640px}
+  ol.commits{list-style:none;margin:0 0 24px 26px;padding:0}
+  ol.commits li{display:grid;grid-template-columns:110px 1fr auto;gap:16px;align-items:baseline;padding:8px 0;border-top:1px dashed #ece8e1;font-size:14.5px}
+  ol.commits li:first-child{border-top:0}
+  ol.commits time{color:var(--faint);font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  ol.commits a{color:var(--ink);font-family:var(--mono);font-size:13px;line-height:1.5}
+  ol.commits a:hover{color:var(--accent)}
+  .repo{font-size:11.5px;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .repos{list-style:none;margin:0;padding:0}
+  .repos li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:18px 0;border-top:1px solid var(--rule)}
+  .repos li:last-child{border-bottom:1px solid var(--rule)}
+  .repos .path{font-family:var(--mono);font-size:13px;color:var(--faint);display:block;margin-top:2px;word-break:break-all}
+  .repos .name{font:400 19px/1.3 var(--serif)}
+  .repos .n{font-size:14px;color:var(--muted);white-space:nowrap}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .timeline{list-style:none;margin:24px 0 0;padding:0}
+  .timeline li{padding:0 0 22px 20px;border-left:1px solid var(--rule);position:relative}
+  .timeline li::before{content:"";position:absolute;left:-5px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--accent)}
+  .timeline li.current::before{background:var(--accent)}
+  .timeline h3{font:600 17px/1.35 var(--serif);margin:0}
+  .timeline .org{color:var(--ink);font-size:15px}
+  .timeline .when{display:block;font-size:13px;color:var(--faint);font-variant-numeric:tabular-nums}
+  footer{margin-top:72px;padding:28px 0 56px;border-top:1px solid var(--rule);color:var(--faint);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:var(--muted)}
+  .links{display:flex;flex-wrap:wrap;gap:10px;margin:0}
+  .links a.ghost{border-color:var(--rule);color:var(--muted)}
+  .links a.ghost:hover{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+  .summary-lede{font:400 19px/1.65 var(--serif);max-width:700px;margin:0 0 34px;color:#2a2f35}
+  .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:0 44px}
+  .skill{padding:16px 0 14px;border-top:1px solid var(--rule)}
+  .skill h3{font:600 12px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+  .skill p{margin:0;font-size:15px;line-height:1.6;color:#3b4148}
+  ol.key{list-style:none;margin:0;padding:0;counter-reset:k}
+  ol.key>li{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:20px 0;border-top:1px solid var(--rule)}
+  ol.key>li:last-child{border-bottom:1px solid var(--rule)}
+  ol.key .when{margin:3px 0 0;font-size:13px;color:var(--faint);font-variant-numeric:tabular-nums}
+  ol.key h3{font:600 19px/1.3 var(--serif);margin:0 0 4px}
+  ol.key p{margin:0;font-size:15px;color:#3b4148}
+  ol.key .commit-links{margin-top:8px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+  ol.key .commit-links span{font-size:11.5px;color:var(--accent);background:var(--accent-soft);padding:1px 8px;border-radius:999px;margin-right:2px}
+  ol.key .commit-links a.sha{font-size:12.5px}
+  .appx-tools{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin:0 0 28px}
+  .toc{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+  .toc li a{display:inline-block;font-size:13px;color:var(--muted);border:1px solid var(--rule);border-radius:999px;padding:4px 12px;background:var(--surface)}
+  .toc li a:hover{border-color:var(--accent);color:var(--accent)}
+  .toc li a::after{content:attr(data-n);margin-left:6px;color:var(--accent);font-variant-numeric:tabular-nums}
+  button.toggle{font:500 13px var(--sans);color:var(--accent);background:none;border:1px solid var(--accent);border-radius:999px;padding:6px 14px;cursor:pointer;margin:0;white-space:nowrap;flex:none}
+  button.toggle:hover{background:var(--accent);color:#fff}
+  details{scroll-margin-top:16px}
+  .repo-note{margin:16px 0 0;font-size:13.5px}
+  .skills-label{font:600 13px/1.4 var(--sans);color:var(--ink);margin:30px 0 4px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+  .skills-label span{font-weight:400;color:var(--faint);font-size:13px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px !important}
+  .chips span{font-size:12.5px;color:var(--accent);background:var(--accent-soft);padding:2px 10px;border-radius:999px}
+  ol.jobs{list-style:none;margin:0;padding:0}
+  .job{padding:22px 0 18px 22px;border-left:1px solid var(--rule);position:relative}
+  .job::before{content:"";position:absolute;left:-5px;top:30px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--accent)}
+  .job.current::before{background:var(--accent)}
+  .job-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .job h3{font:600 20px/1.3 var(--serif);margin:0}
+  .job .loc{font:400 15px var(--sans);color:var(--muted);margin-left:6px}
+  .job .when,.light .when{font-size:13px;color:var(--faint);font-variant-numeric:tabular-nums;white-space:nowrap}
+  ul.roles{list-style:none;margin:4px 0 10px;padding:0;display:flex;flex-wrap:wrap;gap:2px 22px}
+  ul.roles li{font-size:15px}
+  ul.roles b{font-weight:500}
+  ul.roles span{color:var(--faint);font-size:13px;margin-left:8px}
+  ul.bullets{margin:0;padding-left:18px;max-width:700px}
+  ul.bullets li{font-size:15px;color:#3b4148;margin:0 0 5px}
+  ul.bullets li::marker{color:var(--accent)}
+  .edu{margin-top:24px}
+  .edu h3{font:600 17px/1.35 var(--serif);margin:0 0 2px}
+  .edu p{margin:0;font-size:15px}
+  .muted{color:var(--muted)}
+  .skill.wide{grid-column:1 / -1}
+  ul.light{list-style:none;margin:24px 0 0;padding:0}
+  ul.light li{padding:0 0 14px;display:grid;grid-template-columns:1fr auto;gap:0 12px;align-items:baseline}
+  ul.light b{font-weight:600;font-size:14.5px}
+  ul.light p{grid-column:1 / -1;margin:2px 0 0;font-size:14px;line-height:1.55;color:var(--muted)}
+  .cols{grid-template-columns:1fr 1.5fr}
+  @media (max-width:720px){
+    header.top{padding:64px 0 4px}
+    .wrap{padding:0 22px}
+    .stats{grid-template-columns:repeat(2,1fr);margin-top:44px}
+    .appx-tools{flex-direction:column;gap:14px}
+    .stat{padding:18px 0 16px}
+    .stat+.stat{padding-left:16px}
+    .stat:nth-child(3){padding-left:0;border-left:0}
+    .stat:nth-child(n+3){border-top:1px solid var(--rule)}
+    .stat b{font-size:26px;white-space:nowrap}
+    .stat span{font-size:12px}
+    section{padding:44px 0 4px}
+    .summary-lede{font-size:17.5px}
+    .skills,.cols{grid-template-columns:1fr}
+    .job{padding-left:18px}
+    .job .loc{display:block;margin-left:0}
+    .cols{gap:8px}
+    ol.key>li{grid-template-columns:1fr;gap:4px}
+    ol.key .when{margin:0}
+    ol.commits,.area-desc{margin-left:0}
+    ol.commits li{grid-template-columns:1fr auto;gap:2px 12px}
+    ol.commits li a{grid-column:1 / -1;grid-row:2;word-break:break-word}
+    summary{flex-direction:column;gap:2px}
+    .area-count{padding-left:26px}
+    .repos li{flex-direction:column;gap:4px}
+  }
+  @media print{
+    @page{margin:16mm 14mm}
+    body{background:#fff;font-size:10.5pt;color:#000}
+    .wrap{max-width:none;padding:0}
+    header.top{padding:0}
+    .stats{margin-top:18pt}
+    .stat b{font-size:24px;white-space:nowrap}
+    section{padding:18pt 0 0;break-inside:auto}
+    h2,.skills-label,.job-head,ul.roles{break-after:avoid}
+    .skill,ol.key>li,.repos li,.timeline li,ol.commits li,ul.bullets li,ul.light li,.edu{break-inside:avoid}
+    .chips span{background:none;border:1px solid #bbb;color:#333}
+    .links a{border:0;padding:0}
+    .links a.ghost,button.toggle,.toc{display:none}
+    .links a::after{content:" (" attr(href) ")";font-size:9pt;color:#555;font-weight:400}
+    details>summary{pointer-events:none}
+    .area-name::before{display:none}
+    .area-desc{margin-left:0} ol.commits{margin-left:0}
+    a{color:#000}
+    .skill h3{color:#000}
+    .repo,ol.key .commit-links span{background:none;border:1px solid #bbb;color:#333}
+    footer{margin-top:24pt}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <p class="eyebrow">Portfolio · Linux kernel &amp; display drivers</p>
+    <h1>Karthik Andhavarapu</h1>
+    <p class="role">Lead Engineer, Senior · Qualcomm, Hyderabad</p>
+    <p class="links"><a href="https://www.linkedin.com/in/karthik-andhavarapu-37a91a59">LinkedIn <span aria-hidden="true">↗</span></a><a class="ghost" href="#appendix">All 141 commits</a></p>
+  </header>
+
+  <section id="expertise">
+    <h2>Expertise summary</h2>
+    <p class="section-note">Qualcomm display-driver points are backed by the public commits in the appendix. Pre-Qualcomm points come from my résumé.</p>
+    <p class="summary-lede">Linux kernel and embedded-systems engineer who has worked on Qualcomm display kernel drivers (DRM/KMS) since 2020, with 141 public commits to the open-source MSM display stack. I wrote the base late-stage reprojection (LSR) driver and its DRM integration, enabled the HFI core, worked on display bring-up for eight SoC targets and built SDE minidump and register-dump infrastructure, alongside bandwidth-voting, power-management and robustness work. Before that, at Samsung R&amp;D, I developed a patent-pending lock-less resource-management concept for multi-core systems and stabilized BSP, drivers and the 4G/5G RF front end for Qualcomm-chipset Samsung devices.</p>
+      <p class="skills-label">Display kernel work at Qualcomm <span>backed by the commits in the appendix</span></p>
+      <div class="skills">
+        <div class="skill"><h3>Linux kernel display drivers</h3><p>Qualcomm SDE/MDSS driver work on DRM/KMS: planes, encoders, writeback and fences; DRM properties, a DRM uapi format modifier, DRM component registration and GEM object lifecycle.</p></div>
+        <div class="skill"><h3>LSR driver architecture &amp; bring-up</h3><p>Base LSR driver and DRM integration, DRM component, multiple reusable fences, GCX session properties, pose memory mapping, disparity layers, monocular mode and the GMU reprojection interface.</p></div>
+        <div class="skill"><h3>HFI core &amp; inter-processor interfaces</h3><p>mm-drivers hfi_core on seraph (custom DMA ops, IOMMU_CACHE queue mapping, fixed-IOVA remap); HFI fence interface, batch-mode commits in hfi_kms, SSR trigger and firmware debug-level interfaces.</p></div>
+        <div class="skill"><h3>SoC / target bring-up</h3><p>yupik, blair, neo (incl. neo LE), crow, pitti, seraph, pikachu and art: SDE catalog and MDSS version support, MDP and rotator revision checks, DMA pipes, DT nodes and block offsets, build configs.</p></div>
+        <div class="skill"><h3>Performance</h3><p>Split, peak and IB bandwidth voting; interconnect and CSC bandwidth-split fixes; LLCC and system-cache slices (EVA, LR cache, LSR mode); QoS CPU masks; CPU DMA latency votes.</p></div>
+        <div class="skill"><h3>Power &amp; clocks</h3><p>RSC configuration and timers, hardware power collapse and GDSC control, idle power collapse for WFD, clock tables with pegging, core-clock scaling, freerun clock sequencing and SSPP VBIF clock split.</p></div>
+        <div class="skill"><h3>Debuggability</h3><p>SDE minidump (event-log and register-log partitions, register dumps, SDE/VBIF debug bus, VA minidump), register-dump and debug-bus refactoring, event logs, debugfs log levels, SSR triggers, SFR dumps and NOC error reporting.</p></div>
+        <div class="skill"><h3>Robustness</h3><p>Fixes for memory leaks, use-after-free, null-pointer dereferences, out-of-bounds interrupt IDs, writeback-encoder races, RM poll timeouts across suspend/resume and stale event listeners.</p></div>
+        <div class="skill"><h3>Display features</h3><p>Writeback and concurrent writeback (CWB virtual mixers, output-format checks, clone mode), DSC ob_max_addr for native 4:2:2, qsync trigger window, FSC formats end to end, static display and single-buffer mode.</p></div>
+        <div class="skill"><h3>Virtualization, devicetree &amp; build</h3><p>Trusted-VM code under the SDE VM config, iommu_sid_switch, CTL hypervisor property and secure context banks; display-devicetree nodes, clock corner rates and split voting; Bazel and build configs.</p></div>
+      </div>
+      <p class="skills-label">Before Qualcomm <span>from my résumé; this work is not open source</span></p>
+      <div class="skills">
+        <div class="skill"><h3>Modem, BSP &amp; embedded systems (Samsung R&amp;D)</h3><p>Patent-pending lock-less resource management for multi-core systems; a proof of concept for AI-based DVFS in modems; gyroscope and accelerometer sensor-hub integration with the 5G modem for orientation-aided beam searching; stabilizing BSP, drivers and the 4G/5G RF front end for Qualcomm-chipset Samsung phones, mobile hotspots and routers.</p></div>
+        <div class="skill"><h3>Electronics prototypes (internships &amp; projects)</h3><p>An indirect tire-pressure monitoring system (TPMS) prototype; durability test equipment for thick-film resistors, driving a bipolar stepper motor through two H-bridges; an Arduino-based anti-theft device for two-wheelers; a control model for overhead-crane load stability.</p></div>
+        <div class="skill wide"><h3>Languages &amp; skills</h3><p class="chips"><span>C</span><span>C++</span><span>Python</span><span>SQL</span><span>Linux kernel</span><span>Device drivers</span><span>DRM/KMS</span><span>Embedded systems</span><span>PCIe</span><span>RF front-end SW</span></p></div>
+      </div>
+
+  </section>
+
+  <div class="stats" role="list">
+    <div class="stat" role="listitem"><b>141</b><span>public commits</span></div>
+    <div class="stat" role="listitem"><b>3</b><span>repositories</span></div>
+    <div class="stat" role="listitem"><b>2020–2026</b><span>Jul 2020 to Aug 2026</span></div>
+    <div class="stat" role="listitem"><b>8</b><span>SoC targets</span></div>
+  </div>
+
+  <section id="key">
+    <h2>Key contributions</h2>
+    <p class="section-note">Ten representative pieces of work, oldest first, each linked to its commits on git.codelinaro.org.</p>
+    <ol class="key">
+      <li>
+        <p class="when">Jul 2020 – Mar 2022</p>
+        <div><h3>FSC format support, end to end</h3><p>Took FSC from plane atomic checks to planar formats, video-mode timing and a DRM uapi format modifier.</p><p class="commit-links"><span>display-drivers</span><a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/e9e939f372ac6c7f32b4e03f9499945f28f07b2d" title="disp: msm: sde: add atomic_check for fsc planes">e9e939f3</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/7b814935d7387f5d39cb596a72ee5ce929f710a7" title="disp: msm: sde: add planar format support for FSC">7b814935</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/bca07385cbb03e69b3f6f79452d0ea9e631d8669" title="disp: msm: sde: adjust video mode timing as per fsc mode">bca07385</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/a6e90cbb2af4428451abefa471769eab554e9359" title="disp: uapi: drm: add fsc format modifier">a6e90cbb</a></p></div>
+      </li>
+      <li>
+        <p class="when">Oct 2020 – Mar 2021</p>
+        <div><h3>Concurrent writeback (CWB) virtual mixers</h3><p>Added CWB virtual-mixer support to the SDE driver, alongside CWB disable/reset and writeback output-format fixes.</p><p class="commit-links"><span>display-drivers</span><a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/aa20b1c1889227e1dbeb1696321c24cb3b0fbfe9" title="disp: msm: sde: add cwb virtual mixers support">aa20b1c1</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/d403cd676e1a88b8d2f0f311c8ae50f556b8778e" title="disp: msm: sde: avoid tx wait during cwb disable and reset">d403cd67</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/72707666f2a10016ba840ed3115ab780ff68b758" title="disp: msm: sde: add check for unsupported writeback output formats">72707666</a></p></div>
+      </li>
+      <li>
+        <p class="when">Nov 2020 – Aug 2021</p>
+        <div><h3>Register-dump and debug-bus refactoring</h3><p>Consolidated register-dump memory allocation, unified the debug-bus helpers and formatted dumps for readable logs.</p><p class="commit-links"><span>display-drivers</span><a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/bae3455667b31a6d1e04b999d8ba30145ac2b350" title="disp: msm: sde: aggregate all register dump memory allocation">bae34556</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/afafffe4ac3a7308c7cc9f9d873ed71e71526f3e" title="disp: msm: refactor debugbus to use same helpers">afafffe4</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/75fa44a8ab46be0df8374876706f3616a0fc4695" title="disp: msm: format register/debugbus dumping in logs">75fa44a8</a></p></div>
+      </li>
+      <li>
+        <p class="when">Apr 2021 – Jul 2021</p>
+        <div><h3>SDE minidump infrastructure</h3><p>Built display minidump coverage: event-log and register-log partitions, SDE and VBIF debug bus, register dumps and SDE data in VA minidumps.</p><p class="commit-links"><span>display-drivers</span><a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/7ad0876fa7ade9097dabac18cfd7bf331af76285" title="disp: msm: sde: add evt log minidump partition">7ad0876f</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/ae9f6d8dce37d9c2e28b9dfa46588b486ba1f5bd" title="disp: msm: sde: add reg log minidump partition">ae9f6d8d</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/361a8e335117c72dc2bc2076d9f33ad2dcf41a61" title="disp: msm: sde: add sde and vbif debug bus to minidump">361a8e33</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/b7d7dbc6e7251b7e89b1a235d6637a54d47b7a24" title="disp: msm: sde: add register dumps to minidump">b7d7dbc6</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/76d171e61195a11bf8efc70e4972d17334a40c82" title="disp: msm: sde: add sde data to va minidumps">76d171e6</a></p></div>
+      </li>
+      <li>
+        <p class="when">Aug 2021 – Aug 2022</p>
+        <div><h3>Neo target bring-up</h3><p>Brought up display on neo: display config, MDSS version, DMA 4/5 pipes, RSC config and static display support.</p><p class="commit-links"><span>display-drivers</span><a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/6e05f12db7712f4209f1b8288f12a10ad922ecb8" title="disp: msm: add display config support for neo">6e05f12d</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/016ebea27b3927f6fa376ff98b6e162d0c2b7564" title="disp: msm: sde: add neo mdss version support">016ebea2</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/3c219d5fd0ac5a301042384d79bea13225b0b8d1" title="disp: msm: sde: add support for DMA 4,5 for Neo">3c219d5f</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/d4644981d6aef38b1ff4cea1735a808fec718236" title="disp: msm: sde: enable rsc config for neo target">d4644981</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/6f722146fe39fc5640da9d2223e0e28e463c8755" title="disp: msm: sde: add static display support to neo target">6f722146</a></p></div>
+      </li>
+      <li>
+        <p class="when">Feb 2025 – Nov 2025</p>
+        <div><h3>Base LSR driver and DRM integration</h3><p>Wrote the base LSR driver and its DRM integration, then registered LSR as a DRM component.</p><p class="commit-links"><span>display-drivers</span><a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/34d7a39c4969672f14465c67ba25691f108d0eee" title="disp: msm: lsr: base lsr driver and drm integration">34d7a39c</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/7dee0f23a72dc61fd6f3aeac0247d7cac540f21f" title="disp: msm: lsr: register lsr as DRM component">7dee0f23</a></p></div>
+      </li>
+      <li>
+        <p class="when">Mar 2025 – Apr 2025</p>
+        <div><h3>hfi_core enablement on seraph</h3><p>Enabled the mm-drivers HFI core on seraph, with custom DMA ops and IOMMU_CACHE mapping for the HFI queue table.</p><p class="commit-links"><span>mm-drivers</span><a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/862d5b0773cf70fc69e4ffbcbd068503a2168900" title="mm-drivers: hfi core: enable hfi core for seraph">862d5b07</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/88c5929664b42907c532232061dbb03094520ae5" title="mm-drivers: hfi_core: enable hfi on seraph target">88c59296</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/dcc33afe4cd08ddcf7e4867d99a1c2fd60c73fac" title="mm-drivers: hfi core: add custom dma ops for hfi core">dcc33afe</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/f3a65ecafbabc4b74b02183da8947c44bc7134e0" title="mm-drivers: hfi core: add IOMMU_CACHE flag to hfi queue table mapping">f3a65eca</a></p></div>
+      </li>
+      <li>
+        <p class="when">Jan 2026</p>
+        <div><h3>Split and peak bandwidth voting</h3><p>Enabled split and peak bandwidth voting for LSR, with the matching device-tree change and an interconnect-voting fix.</p><p class="commit-links"><span>display-devicetree · display-drivers</span><a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/6582e0369feeb42cf8c7fb43b1a392d213b0f7e3" title="disp: msm: lsr: enable split BW voting and peak BW voting">6582e036</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-devicetree/-/commit/f0696f40aca88073c025d77dcf7234c5d4a8537f" title="ARM: dts: msm: enable split voting on LSR">f0696f40</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/a7e4714cb2311ed0f9072c5f172ada93dc207603" title="disp: msm: lsr: fix interconnect voting on lsr">a7e4714c</a></p></div>
+      </li>
+      <li>
+        <p class="when">Feb 2026 – May 2026</p>
+        <div><h3>SSR, use-after-free and memory-leak fixes</h3><p>Added SSR triggers over HFI and debugfs, then fixed a memory leak in the SSR sequence and a use-after-free in client deinit.</p><p class="commit-links"><span>display-drivers · mm-drivers</span><a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/03ba3cf2c79cc3a6f93db5cf4ad4d4f5942cb135" title="disp: msm: hfi: add hfi interface to trigger SSR">03ba3cf2</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/94fcb5fb684f3c0801eb6e3bfee4ef69685eb53c" title="disp: msm: lsr: add debugfs support to trigger ssr on lsr">94fcb5fb</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/19ea31a9f93aa84b236745851e17bb07dc5464cf" title="mm: hfi_core: fix memory leak in ssr sequence">19ea31a9</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/f6e05f4b888401ee9025a162e6ba1a88ff735c91" title="mm: hfi-core: Fix use-after-free in HFI core client deinit path">f6e05f4b</a></p></div>
+      </li>
+      <li>
+        <p class="when">Mar 2026 – May 2026</p>
+        <div><h3>LSR reprojection features: disparity and monocular mode</h3><p>Added disparity-layer support (with an HFI disparity-correction interface), multiple reusable fences and monocular mode.</p><p class="commit-links"><span>display-drivers</span><a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/0e53bdc685a50d48c7e81620ecfa5a6f0281428c" title="disp: msm: lsr: add disparity layer support for lsr on seraph target">0e53bdc6</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/0d0b1a6395fcb0c743f449af97e7b5e6040038cc" title="disp: msm: hfi: add interface for disparity correction">0d0b1a63</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/ceeaf18a1fc284f0bb20da309b8b854b9422c595" title="disp: msm: lsr: setup multiple reusable fences for lsr on seraph target">ceeaf18a</a> <a class="sha" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/4b787c7170a9a8531665cef145bd627919b652be" title="disp: msm: lsr: add support for lsr monocular mode">4b787c71</a></p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <p class="section-note">Qualcomm details come from my public commits, with titles and dates as on LinkedIn. Samsung R&amp;D and earlier details come from my résumé.</p>
+    <ol class="jobs">
+      <li class="job current">
+        <div class="job-head"><h3>Qualcomm <span class="loc">Hyderabad</span></h3><span class="when">Jun 2020 – present</span></div>
+        <ul class="roles"><li><b>Lead Engineer, Senior</b><span>Dec 2023 – present</span></li><li><b>Senior Engineer</b><span>Jun 2020 – Dec 2023</span></li></ul>
+        <ul class="bullets">
+          <li>Linux kernel display-driver development for the Qualcomm SDE/MDSS stack on DRM/KMS: 141 public commits across display-drivers, mm-drivers and display-devicetree (see <a href="#key">Key contributions</a>).</li>
+          <li>Wrote the base LSR driver and its DRM integration, then added reusable fences, disparity layers, monocular mode and the GMU reprojection interface.</li>
+          <li>Enabled the mm-drivers HFI core on seraph and added HFI interfaces for fences, batch-mode commits and SSR triggers.</li>
+          <li>Worked on display bring-up for yupik, blair, neo, crow, pitti, seraph, pikachu and art.</li>
+          <li>Built SDE minidump and register-dump infrastructure, enabled split and peak bandwidth voting, and fixed memory leaks and a use-after-free.</li>
+        </ul>
+      </li>
+      <li class="job">
+        <div class="job-head"><h3>Samsung R&amp;D Institute <span class="loc">Bangalore</span></h3><span class="when">Oct 2017 – Jun 2020</span></div>
+        <ul class="roles"><li><b>Senior Software Engineer</b></li></ul>
+        <ul class="bullets">
+          <li>Developed and proved a concept for lock-less resource management in multi-core systems (patent pending).</li>
+          <li>Worked on a proof of concept for AI-based DVFS (dynamic voltage and frequency scaling) in modems.</li>
+          <li>Integrated a gyroscope and accelerometer sensor hub with the 5G modem to determine device orientation for better beam-searching performance.</li>
+          <li>Stabilized BSP, drivers and the 4G/5G RF front-end module for several Qualcomm-chipset Samsung phones, mobile hotspots and routers, fixing issues reported by testers.</li>
+        </ul>
+      </li>
+      <li class="job">
+        <div class="job-head"><h3>Delta Electronics</h3><span class="when">Jun 2017 – Sep 2017</span></div>
+        <ul class="roles"><li><b>Software Engineer</b></li></ul>
+      </li>
+    </ol>
+  </section>
+
+  <div class="cols">
+    <section id="education">
+      <h2>Education</h2>
+      <div class="edu">
+        <h3>Indian Institute of Technology Kharagpur</h3>
+        <p>Dual degree (5-year), B.Tech + M.Tech</p>
+        <p class="muted">Quality Engineering Design &amp; Manufacturing (Industrial Electronics)</p>
+        <p class="muted">2012 – 2017 · CGPA 7.23 / 10</p>
+      </div>
+    </section>
+    <section id="earlier">
+      <h2>Earlier projects &amp; internships</h2>
+      <ul class="light">
+        <li><b>M.Tech project, IIT Kharagpur</b><span class="when">Jul 2016 – Mar 2017</span><p>Control model for overhead-crane load stability under Prof. J Maiti, minimizing load-swing stabilization time; 3D virtual-reality environment of a manufacturing plant (Google SketchUp, Blender).</p></li>
+        <li><b>Bosch, Bangalore</b><span class="when">Dec 2015 – Jun 2016</span><p>Supplier base reduction: new process plans for 35 new suppliers to improve the quality of inward parts for diesel engine systems and surface treatment.</p></li>
+        <li><b>Product development project</b><span class="when">Jul 2015 – Nov 2015</span><p>Anti-theft device prototype for two-wheelers, using a wireless remote key, an accelerometer and an Arduino controller.</p></li>
+        <li><b>TVS Motor Company, Hosur</b><span class="when">May 2014 – Jun 2014</span><p>Advanced Electronics Group: designed and developed a prototype indirect tire-pressure monitoring system (TPMS) with 99% accuracy, and worked on an energy-harvesting system for aTPMS.</p></li>
+        <li><b>Pricol, Coimbatore</b><span class="when">May 2013 – Jun 2013</span><p>Test equipment to check the durability of thick-film resistors used in fuel-level sensors, with an analog driver of PMOS and NMOS transistors in two H-bridges for a bipolar stepper motor.</p></li>
+      </ul>
+    </section>
+  </div>
+
+  <section id="repositories">
+    <h2>Repositories</h2>
+    <p class="section-note">Hosted on CodeLinaro, Qualcomm’s open-source code hosting.</p>
+    <ul class="repos">
+      <li><div><a class="name" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commits/4b787c7170a9a8531665cef145bd627919b652be?author=Andhavarapu%20Karthik">display-drivers</a><span class="path">clo/la/platform/vendor/opensource/display-drivers</span></div><span class="n">124 commits</span></li>
+      <li><div><a class="name" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commits/657775f2?author=Andhavarapu%20Karthik">mm-drivers</a><span class="path">clo/la/platform/vendor/opensource/mm-drivers</span></div><span class="n">9 commits</span></li>
+      <li><div><a class="name" href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-devicetree/-/commits/6c2658ee?author=Andhavarapu%20Karthik">display-devicetree</a><span class="path">clo/la/platform/vendor/opensource/display-devicetree</span></div><span class="n">8 commits</span></li>
+    </ul>
+    <p class="section-note repo-note">Each link opens one branch’s commit history filtered to my author name, so it is a partial view. The appendix lists all 141 commits, including 2020–2022 work under my earlier Code Aurora address.</p>
+  </section>
+
+
+  <section id="appendix">
+    <h2>Appendix: all contributions</h2>
+    <p class="section-note">All 141 commits, grouped by area and listed newest first. Each commit appears once, under its main subject.</p>
+    <div class="appx-tools"><ul class="toc"><li><a href="#area-lsr" data-n="22">LSR</a></li><li><a href="#area-hfi" data-n="17">HFI core</a></li><li><a href="#area-target" data-n="22">Target bring-up</a></li><li><a href="#area-perf" data-n="15">Performance</a></li><li><a href="#area-power" data-n="12">Power &amp; clocks</a></li><li><a href="#area-debug" data-n="20">Debuggability</a></li><li><a href="#area-features" data-n="16">Display features</a></li><li><a href="#area-robust" data-n="11">Robustness</a></li><li><a href="#area-virt" data-n="6">Virtualization &amp; memory</a></li></ul><button class="toggle" type="button" aria-pressed="false">Expand all</button></div>
+      <details id="area-lsr">
+        <summary><span class="area-name">LSR driver architecture &amp; reprojection</span><span class="area-count">22 commits · 2025–2026</span></summary>
+        <p class="area-desc">The LSR display driver from its base version onward: DRM integration and component registration, reusable fences, GCX session properties, pose memory mapping, disparity layers, monocular mode and the GMU reprojection interface. LSR clock, bandwidth and debug work is listed under those areas.</p>
+        <ol class="commits">
+          <li><time datetime="2026-08-24">Aug 24, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/758ff7688607ddc6d8856e4dd9976fb76b8ce026">disp: msm: sde: add gmu reprojection drm properties</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-08-11">Aug 11, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/2608941c73f97063cb5ff86645bb4fe5704edd40">disp: msm: lsr: initialize lsr after sde smmu setup</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-07-18">Jul 18, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/17e426ed64f13b0d8ff747da7de6443b563c48e5">disp: msm: lsr: enable cache attribute for pose memory map</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-06-24">Jun 24, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/8ff3bfd8ddd31ae762e25f70c81499f64259ddbd">disp: msm: lsr: update gcx scratch memory size</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-06-04">Jun 4, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/68e2a416527e191a31eba3895fd305acfb190192">Revert &quot;disp: msm: lsr: remap pose to fixed iova in further iterations&quot;</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-05-29">May 29, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/4b787c7170a9a8531665cef145bd627919b652be">disp: msm: lsr: add support for lsr monocular mode</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-05-25">May 25, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/4450fbccf790c8a7f3692f87459fca9b3a1b703e">disp: msm: lsr: remap pose to fixed iova in further iterations</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-04-22">Apr 22, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/5413d0f39b2f8aac13eb0403606be5c720474618">disp: msm: sde: add batch commit and gmu reprojection interface</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-03-16">Mar 16, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/0e53bdc685a50d48c7e81620ecfa5a6f0281428c">disp: msm: lsr: add disparity layer support for lsr on seraph target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-03-10">Mar 10, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/ceeaf18a1fc284f0bb20da309b8b854b9422c595">disp: msm: lsr: setup multiple reusable fences for lsr on seraph target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-03-02">Mar 2, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/a1f27625e3fedf30b39c298978e31eccac46d406">disp: msm: sde: fix reusable fence payload</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-01-23">Jan 23, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/c8ff921cc0c4c7ae9fb703e878a5edde7b9eeb13">disp: msm: sde: avoid frame trigger on lsr mode commits</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-12-25">Dec 25, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/4dfabf3ae0dc82e3c23854120f712a16499c754c">disp: msm: lsr: fix the release sequence of lsr gem objects</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-12-17">Dec 17, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/2049df0e599019c7100668d9c6b42c969dd877c1">disp: msm: sde: gate commit done event in LSR mode</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-12-17">Dec 17, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/1038a1519dd1a4816cb9e9f41d625eebb3ebbbc2">disp: msm: lsr: update gcx component scratch memory size</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-12-14">Dec 14, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/a0ecc1ab9ba2ac3369ecb8829707e8b030b43d16">disp: msm: lsr: add dirty check for gcx session properties</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-11-21">Nov 21, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/7dee0f23a72dc61fd6f3aeac0247d7cac540f21f">disp: msm: lsr: register lsr as DRM component</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-11-17">Nov 17, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/2761cc2cca5938625a3b317c039a30e120a93e74">disp: msm: sde: avoid sw wait on input fences for reprojection displays</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-10-22">Oct 22, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/05745700b5ebe1875daccc0eb89861c237aabb1b">disp: msm: sde: avoid src split check for lsr planes</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-10-15">Oct 15, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/6ae46b7757e31e4d3b61371b86c1022e6ef8c880">disp: msm: hfi: avoid post init failure for lsr pipes</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-10-07">Oct 7, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/1854524cbad0e69a8dc065db27515de440b1fb60">disp: msm: sde: enable lsr for seraph target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-02-10">Feb 10, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/34d7a39c4969672f14465c67ba25691f108d0eee">disp: msm: lsr: base lsr driver and drm integration</a><span class="repo">display-drivers</span></li>
+        </ol>
+      </details>
+      <details id="area-hfi">
+        <summary><span class="area-name">HFI core &amp; inter-processor interfaces</span><span class="area-count">17 commits · 2025–2026</span></summary>
+        <p class="area-desc">The host firmware interface in display-drivers and the mm-drivers hfi_core: target enablement, DMA ops and IOMMU mappings, input/output fence interface, batch-mode commits and event handling.</p>
+        <ol class="commits">
+          <li><time datetime="2026-08-19">Aug 19, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/e6ec7b78dd18efea973ed1025864fc1b1caf98d4">disp: msm: hfi: allow release fence event in command mode</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-06-16">Jun 16, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/8204df4780d35ecf64a177389a2146b575c7d67f">disp: msm: sde: avoid frame trigger on commits during batch mode</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-05-25">May 25, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/657775f2d65b0c19b6f824c850c8eda36e47a3cb">mm: hfi_core: add support for remap with fixed iova</a><span class="repo">mm-drivers</span></li>
+          <li><time datetime="2026-05-04">May 4, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/00853d2f4f88cd057916501c6786c4ec3b388c75">disp: msm: sde: add batch mode commit support in hfi_kms</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-05-04">May 4, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/825fb3c45d0aeced2b5ab6f811b7eab3a0e5c39c">disp: msm: hfi: add interface to support batch mode commits</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-04-23">Apr 23, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/ab6cdd518c99bd1c6ccd851373c7a0e5809024f4">disp: msm: hfi: allow error events to bypass seq check</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-04-21">Apr 21, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/fb96000d0c615c99f3da82582adafe6eace8ad5f">msm: sde: hfi: honor fix_core_clk_rate in FIXED perf mode</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-03-11">Mar 11, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/0d0b1a6395fcb0c743f449af97e7b5e6040038cc">disp: msm: hfi: add interface for disparity correction</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-03-05">Mar 5, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/666ec99eb44bbb4a508b710d605417c460ed5df5">disp: msm: hfi: Use RSCC wrapper for power status check</a><span class="repo">mm-drivers</span></li>
+          <li><time datetime="2025-12-20">Dec 20, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/8e8083279b843df994b6c8faaa911c91653d59a8">mm-drivers: hfi_core: disable HW fence config for art target</a><span class="repo">mm-drivers</span></li>
+          <li><time datetime="2025-12-16">Dec 16, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/45163f47755a7f68e700d979f79e6da4b15727cf">disp: msm: hfi: update input and output fence interface</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-09-03">Sep 3, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/5a2495cfd30d57b8b1094796a3da407a14a17a9e">disp: msm: sde: enable bg_alpha hfi property for fsc planes</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-07-06">Jul 6, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/261b1c4a044aa9140767eb4192e07535943c63ba">disp: msm: sde: avoid phys encoder ops in HFI mode</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-04-28">Apr 28, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/88c5929664b42907c532232061dbb03094520ae5">mm-drivers: hfi_core: enable hfi on seraph target</a><span class="repo">mm-drivers</span></li>
+          <li><time datetime="2025-04-18">Apr 18, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/f3a65ecafbabc4b74b02183da8947c44bc7134e0">mm-drivers: hfi core: add IOMMU_CACHE flag to hfi queue table mapping</a><span class="repo">mm-drivers</span></li>
+          <li><time datetime="2025-04-07">Apr 7, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/dcc33afe4cd08ddcf7e4867d99a1c2fd60c73fac">mm-drivers: hfi core: add custom dma ops for hfi core</a><span class="repo">mm-drivers</span></li>
+          <li><time datetime="2025-03-11">Mar 11, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/862d5b0773cf70fc69e4ffbcbd068503a2168900">mm-drivers: hfi core: enable hfi core for seraph</a><span class="repo">mm-drivers</span></li>
+        </ol>
+      </details>
+      <details id="area-target">
+        <summary><span class="area-name">SoC / target bring-up</span><span class="area-count">22 commits · 2020–2026</span></summary>
+        <p class="area-desc">Display enablement for yupik, blair, neo (incl. neo LE), crow, pitti, seraph and pikachu: catalog and MDSS version support, revision checks, feature tuning, device-tree nodes and build configs.</p>
+        <ol class="commits">
+          <li><time datetime="2026-05-12">May 12, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-devicetree/-/commit/3aab2826600e3c0cde57ff7e7c6652e622e671e2">ARM: dts: msm: fix interface order in pikachu target</a><span class="repo">display-devicetree</span></li>
+          <li><time datetime="2026-05-04">May 4, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/6d2d0ee63fe17fabbea098faee5ed8d5e861cad0">disp: msm: sde: enable ept feature for seraph and pikachu targets</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-04-14">Apr 14, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-devicetree/-/commit/acaeb04ba1a91908f0b2ac035e27117495c49b3e">ARM: dts: msm: Add VIG, DMA and DSPP block offsets for Pikachu</a><span class="repo">display-devicetree</span></li>
+          <li><time datetime="2026-03-01">Mar 1, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-devicetree/-/commit/fa176046bccecd4db21a44555c34d44ff3f141bc">ARM: dts: msm: add display DT node for pikachu target</a><span class="repo">display-devicetree</span></li>
+          <li><time datetime="2025-07-21">Jul 21, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/e40a5f2e790ac1e12a65fb767be6f3a1a5951cd2">disp: msm: sde: disable multirect on seraph target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-03-27">Mar 27, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/283f231e0cd7ea5a193f6883d483908d2ac666ed">disp: msm: sde: add sde catalog support for seraph</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-01-24">Jan 24, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/18853b60f58dad697ac97d10acd689f39b7b3481">disp: add bazel file for seraph target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2023-12-29">Dec 29, 2023</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/901ef0895f1d6aeaa1e77abcdd3b2ef70a25e591">disp: msm: sde: add rev checks for pitti target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2023-12-05">Dec 5, 2023</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/e65d26f88a9bf36d977c2fab6933c0d22f4aa9b7">disp: msm: sde: update plane width check for rgb panels on neo</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2023-11-22">Nov 22, 2023</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/49eb63e4e88d253e114b1da227c2af5ca6e531b6">disp: msm: sde: disable programmable fetch for neo le</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2023-05-09">May 9, 2023</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/0088f38efe1e9d3695b5310dafb8820f2a585c2f">disp: msm: add build configs for crow</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2023-05-08">May 8, 2023</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/ea6a5d1fbce3ea1ea6ea1626da4cf30d830c0148">disp: msm: sde: add rev checks for crow target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-08-24">Aug 24, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/6f722146fe39fc5640da9d2223e0e28e463c8755">disp: msm: sde: add static display support to neo target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-07-11">Jul 11, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/2fe2afd3a97ab716eaaa5734790b5ab54be5ab74">disp: msm: sde: update dedicated cwb registers for neo target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-04-22">Apr 22, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/3c219d5fd0ac5a301042384d79bea13225b0b8d1">disp: msm: sde: add support for DMA 4,5 for Neo</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-03-30">Mar 30, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/fc6b2e152ceff4c2da362c0ad03cda6a6b78581c">disp: msm: sde: disable demura and hdr features for neo</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-12-30">Dec 30, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/016ebea27b3927f6fa376ff98b6e162d0c2b7564">disp: msm: sde: add neo mdss version support</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-08-12">Aug 12, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/6e05f12db7712f4209f1b8288f12a10ad922ecb8">disp: msm: add display config support for neo</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-05-21">May 21, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/ad69f4cc0c70cb48bac6a7dbeffeb56bce90d91f">disp: rotator: add rev checks for rotator for blair target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-05-20">May 20, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/c0951d16d0c9cc353fdaa1a8ec1e47f82195ed20">disp: msm: sde: add rev checks for blair target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-01-20">Jan 20, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/c771326b6308f82cb10008fcd5b36617f8005b21">disp: msm: sde: disable uidle for yupik target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2020-12-31">Dec 31, 2020</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/d92bb74dfd79d8427015bd0f80bb45220c078b38">disp: msm: sde: add rev check for mdp in yupik target</a><span class="repo">display-drivers</span></li>
+        </ol>
+      </details>
+      <details id="area-perf">
+        <summary><span class="area-name">Performance: bandwidth, cache &amp; latency</span><span class="area-count">15 commits · 2021–2026</span></summary>
+        <p class="area-desc">Split, peak and IB bandwidth voting, interconnect fixes, LLCC / system-cache slices, QoS CPU masks and CPU DMA latency votes.</p>
+        <ol class="commits">
+          <li><time datetime="2026-07-13">Jul 13, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/cdd15247c51f8d743a83f05ea3195f81d97356db">disp: msm: lsr: fix csc bandwidth split across lsr interconnects</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-05-27">May 27, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/9cd8e2a3f0fe6868462f4b80d3d69865b0f26cd8">disp: msm: lsr: fix lsr ib voting calculation</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-04-22">Apr 22, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/c5a61cb5f1897e5cb48cd6f9df347fa9011be8ad">disp: msm: sde: add SDE_SYS_CACHE_LSR_MODE system cache type</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-03-27">Mar 27, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/930fbe38c22a920769d0cfb72e62cba81cb843fb">disp: msm: lsr: enable llcc slices only lsr use case</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-01-31">Jan 31, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/6582e0369feeb42cf8c7fb43b1a392d213b0f7e3">disp: msm: lsr: enable split BW voting and peak BW voting</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-01-28">Jan 28, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-devicetree/-/commit/f0696f40aca88073c025d77dcf7234c5d4a8537f">ARM: dts: msm: enable split voting on LSR</a><span class="repo">display-devicetree</span></li>
+          <li><time datetime="2026-01-22">Jan 22, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/a7e4714cb2311ed0f9072c5f172ada93dc207603">disp: msm: lsr: fix interconnect voting on lsr</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-12-18">Dec 18, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/a2e45f7dfe116523d084e44f4e906540146f19d9">disp: msm: lsr: remove cpu latency vote from lsr on seraph target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-11-22">Nov 22, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/39dde35cd6ccac4dca7a3a670765e697e7523bb5">disp: msm: lsr: disable lsr syscache</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-11-21">Nov 21, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/9d686cfdf64a40304bec81c57fb724876848e168">disp: msm: sde: enable llcc for seraph target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2023-02-16">Feb 16, 2023</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/d6fb8eead2283c8423b45103f278e8d3ca5eb311">disp: msm: sde: update qos cpu mask to avoid defective cores</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-04-29">Apr 29, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/bbf9c1485eca7827af4abf4c9bd7d39a0fa20d6f">disp: msm: sde: enable display lr cache on neo target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-02-23">Feb 23, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/c1f432893ef6034a0fe91db12994245fc35d7368">disp: msm: sde: enable eva left and eva right syscache</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-02-10">Feb 10, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/caa5fa42476c09bbcb8e3d96c9c56d5b42de23d7">disp: msm: sde: take min ib votes from perf config</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-05-31">May 31, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/b7db20d3ca92938e4b09952814bd397f4ce62d89">disp: msm: sde: update perf cpu dma latency votes on idle in video mode</a><span class="repo">display-drivers</span></li>
+        </ol>
+      </details>
+      <details id="area-power">
+        <summary><span class="area-name">Power, clocks &amp; RSC</span><span class="area-count">12 commits · 2021–2026</span></summary>
+        <p class="area-desc">RSC configuration and timers, hardware and idle power collapse, GDSC control, clock tables and pegging, core clock scaling and VBIF clock split.</p>
+        <ol class="commits">
+          <li><time datetime="2026-05-11">May 11, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/20366d7a651bd93cab3c766a3666f450269c5bcd">disp: msm: sde: defer power event callback deregistration</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-05-04">May 4, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/5b728791c45aeb060ef4a601b8069dc7cc5160b9">disp: msm: lsr: add lsr controller clock table and pegging support</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-04-30">Apr 30, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-devicetree/-/commit/146768d5428bd738106e9d7d6434576dbb6bc249">ARM: dts: msm: lsr: add lsr_clk corner rates for seraph target</a><span class="repo">display-devicetree</span></li>
+          <li><time datetime="2026-04-10">Apr 10, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/6e02da12edf3f18670759f4b1f937494e96ba150">disp: msm: lsr: enable hw power collapse on seraph target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-04-10">Apr 10, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-devicetree/-/commit/39843c0685358e4b7e3047523acde90b2f43e960">ARM: dts: msm: lsr: disable hw power collapse for lsr controller gdsc</a><span class="repo">display-devicetree</span></li>
+          <li><time datetime="2026-02-17">Feb 17, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/3b3a74c9fc854b63072210c2a9424d7f95dbc920">disp: msm: lsr: fix core freerun clock enable sequence</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-11-06">Nov 6, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/775bfc65a58b57cc0bb7b982959530a546af6af2">disp: msm: lsr: fix clk voting synchronization</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-10-18">Oct 18, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/a33332fd3b1bd8e6f4fc9df16b8fd4482f5e45a0">disp: msm: sde: enable scaling on lsr core clock</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2023-12-14">Dec 14, 2023</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/b35752cb3c15d5d93b557c131d5e2b83e2f3d445">disp: msm: sde: update rsc timer during video mode boot up</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-12-15">Dec 15, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/64c8523173d1349dc9ffa88a172e46dc2927ce89">disp: msm: sde: update idlepc handling for wfd display</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-04-22">Apr 22, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/d4644981d6aef38b1ff4cea1735a808fec718236">disp: msm: sde: enable rsc config for neo target</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-08-18">Aug 18, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/5b1a9581eb622c0d5092ae38190542fd0ed87577">disp: msm: sde: add support for SSPP VBIF clock split</a><span class="repo">display-drivers</span></li>
+        </ol>
+      </details>
+      <details id="area-debug">
+        <summary><span class="area-name">Debuggability: minidump, dumps, logs &amp; SSR</span><span class="area-count">20 commits · 2020–2026</span></summary>
+        <p class="area-desc">SDE minidump partitions (event log, register log, register dumps, debug bus, VA minidump), register-dump and debug-bus refactoring, event logs, debugfs log-level controls, SSR triggers and SFR dumps.</p>
+        <ol class="commits">
+          <li><time datetime="2026-07-29">Jul 29, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/223e1efad59e561a1d2a4689ef54a47a46734328">disp: msm: lsr: skip ssr handling when lsr is not initialized</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-04-19">Apr 19, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/913e0cc21516a822ca5b5a12a186a1dbe4d909e7">disp: msm: lsr: Distinguish left and right core NOC interrupt errors</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-02-16">Feb 16, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/b9fe9bb222def958c5b7ce9ac8b2760ed2dfe129">disp: msm: lsr: update log level interface to bitmask</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-02-16">Feb 16, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/245765d5745b8de7da237f12c599e815f54b0859">disp: msm: hfi: update debug log level to a bitmask</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-02-13">Feb 13, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/94fcb5fb684f3c0801eb6e3bfee4ef69685eb53c">disp: msm: lsr: add debugfs support to trigger ssr on lsr</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-02-13">Feb 13, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/03ba3cf2c79cc3a6f93db5cf4ad4d4f5942cb135">disp: msm: hfi: add hfi interface to trigger SSR</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-02-10">Feb 10, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/8910f314943f41e67612dd0a1d8ce0da62223f17">disp: msm: lsr: dump sfr logs when sys error is generated</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-02-03">Feb 3, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/fb63f9c0aa4df1453400be4f07e3d1b4b4548cce">disp: msm: sde: add debugfs support to update lsr log level</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2026-02-03">Feb 3, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/369ae3f6551e1e2931a3f61e4884859c96ee2a7e">disp: msm: hfi: add hfi support to update lsr firmware debug level</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-10-20">Oct 20, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/cf6ecb421493de16684a0a2ae4b89cb13c544dd0">disp: msm: sde: add evt log in rsc timer calculation</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-08-10">Aug 10, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/afafffe4ac3a7308c7cc9f9d873ed71e71526f3e">disp: msm: refactor debugbus to use same helpers</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-08-10">Aug 10, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/75fa44a8ab46be0df8374876706f3616a0fc4695">disp: msm: format register/debugbus dumping in logs</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-07-19">Jul 19, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/76d171e61195a11bf8efc70e4972d17334a40c82">disp: msm: sde: add sde data to va minidumps</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-07-15">Jul 15, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/2db495708f38b9d006d4ec6484e24ef2d6f73143">disp: msm: update register dump and debug bus memory allocation</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-05-24">May 24, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/b7d7dbc6e7251b7e89b1a235d6637a54d47b7a24">disp: msm: sde: add register dumps to minidump</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-04-23">Apr 23, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/ae9f6d8dce37d9c2e28b9dfa46588b486ba1f5bd">disp: msm: sde: add reg log minidump partition</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-04-22">Apr 22, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/361a8e335117c72dc2bc2076d9f33ad2dcf41a61">disp: msm: sde: add sde and vbif debug bus to minidump</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-04-22">Apr 22, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/7ad0876fa7ade9097dabac18cfd7bf331af76285">disp: msm: sde: add evt log minidump partition</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2020-12-07">Dec 7, 2020</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/9c5880443c8878371bc5345842c6a6fc02667f6a">disp: msm: sde: save register write logs in dump</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2020-11-18">Nov 18, 2020</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/bae3455667b31a6d1e04b999d8ba30145ac2b350">disp: msm: sde: aggregate all register dump memory allocation</a><span class="repo">display-drivers</span></li>
+        </ol>
+      </details>
+      <details id="area-features">
+        <summary><span class="area-name">Display features: writeback, CWB, DSC, qsync, FSC</span><span class="area-count">16 commits · 2020–2023</span></summary>
+        <p class="area-desc">Concurrent writeback (CWB) virtual mixers, writeback format checks and fence/clone-mode fixes, DSC ob_max_addr for native 4:2:2, qsync trigger-window accuracy, single-buffer-mode planes and end-to-end FSC format support, including a DRM uapi format modifier.</p>
+        <ol class="commits">
+          <li><time datetime="2023-12-15">Dec 15, 2023</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/13d31e51110e790ec7fd94928d5ef052b9af7cae">disp: msm: sde: avoid race on in_clone_mode flag in wb encoder</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-12-27">Dec 27, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/63e3eb3739a0320735c77e13812c2dc1ad81a24d">disp: msm: sde: avoid fence signalling on wb disable commit</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-09-28">Sep 28, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/911cf4344f85ee5b37c3bb8eeba4570715919abd">disp: msm: sde: update interface pack pattern for fsc formats</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-09-26">Sep 26, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/816a52fcce8d906cb36a8e266a82bb75b64bf07d">disp: msm: sde: improve qsync trigger window accuracy</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-08-30">Aug 30, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/94c8e04a85dd96aebf0f2ee614d1f95d102b3dca">disp: msm: sde: avoid reset of planes in single buffer mode</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-07-25">Jul 25, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/6d6535baf1739804f87402d0acc1d8473c236855">disp: msm: sde: update plane width check for fsc formats</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-04-20">Apr 20, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/bc958c762f7e9310b6e70b0964ccc3eab215b23e">disp: msm: sde: disable multi rect scaling check for FSC formats</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-03-24">Mar 24, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/9ba06699eb81f2b30146cadae36575a4b7aea114">disp: msm: sde: update layer bound check in fsc format case</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-03-23">Mar 23, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/bca07385cbb03e69b3f6f79452d0ea9e631d8669">disp: msm: sde: adjust video mode timing as per fsc mode</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-03-15">Mar 15, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/a6e90cbb2af4428451abefa471769eab554e9359">disp: uapi: drm: add fsc format modifier</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-12-29">Dec 29, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/7b814935d7387f5d39cb596a72ee5ce929f710a7">disp: msm: sde: add planar format support for FSC</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-03-30">Mar 30, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/72707666f2a10016ba840ed3115ab780ff68b758">disp: msm: sde: add check for unsupported writeback output formats</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-01-22">Jan 22, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/fb15676492a177cd2449efc7ac96dc9af9333aff">disp: msm: sde: program ob_max_addr based on dsc native422 support</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-01-13">Jan 13, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/aa20b1c1889227e1dbeb1696321c24cb3b0fbfe9">disp: msm: sde: add cwb virtual mixers support</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2020-10-15">Oct 15, 2020</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/d403cd676e1a88b8d2f0f311c8ae50f556b8778e">disp: msm: sde: avoid tx wait during cwb disable and reset</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2020-07-15">Jul 15, 2020</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/e9e939f372ac6c7f32b4e03f9499945f28f07b2d">disp: msm: sde: add atomic_check for fsc planes</a><span class="repo">display-drivers</span></li>
+        </ol>
+      </details>
+      <details id="area-robust">
+        <summary><span class="area-name">Robustness &amp; maintenance</span><span class="area-count">11 commits · 2020–2026</span></summary>
+        <p class="area-desc">Memory-leak, use-after-free, null-pointer and out-of-bounds fixes, RM poll timeouts across suspend/resume, stale event listeners, defensive checks and housekeeping.</p>
+        <ol class="commits">
+          <li><time datetime="2026-05-14">May 14, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/19ea31a9f93aa84b236745851e17bb07dc5464cf">mm: hfi_core: fix memory leak in ssr sequence</a><span class="repo">mm-drivers</span></li>
+          <li><time datetime="2026-04-28">Apr 28, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/mm-drivers/-/commit/f6e05f4b888401ee9025a162e6ba1a88ff735c91">mm: hfi-core: Fix use-after-free in HFI core client deinit path</a><span class="repo">mm-drivers</span></li>
+          <li><time datetime="2025-12-15">Dec 15, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/243d50ef254bba9401417efcfd4a30bdbb2ec88b">disp: msm: sde: fix memory leak in lsr properties</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2025-12-12">Dec 12, 2025</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/5630fefbc9bcc5bbd9f36d9ae7bce72b17b3ee3b">disp: msm: hfi: fix stale display event listeners</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2023-07-20">Jul 20, 2023</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/cd672fbb9d65a8225ded0c7afab407a687762960">disp: msm: sde: add out of bound check for interrupt id</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-03-25">Mar 25, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/5f608b8301fececf6e392e7e48b49ddeca7f77a4">disp: msm: sde: add requied checks to prevent errors</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-01-10">Jan 10, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/bcb9619f9f536275baabefd097ae248f82360eaf">disp: msm: sde: fix RM poll timeouts during PM suspend/resume usecase</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-09-21">Sep 21, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/92359a8a2e68001f07c6d1aa2a1818de5ec7b637">disp: msm: sde: add checks to avoid null pointer dereference</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-04-28">Apr 28, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/81b58ee731d6ac65c5d325baac98e3441c9d20f3">disp: msm: sde: allow input fence status show only when kickoff in progress</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-03-16">Mar 16, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/82f6c103e8e97dc0bcfeaa5bcb1e950443cd0f8f">disp: msm: sde: copyright fix for hw dsc file</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2020-12-24">Dec 24, 2020</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/2ad29060a22bcc465965d62dad2e3bbf5026b20e">disp: msm: sde: add check for external vote triggered by sysfs node</a><span class="repo">display-drivers</span></li>
+        </ol>
+      </details>
+      <details id="area-virt">
+        <summary><span class="area-name">Virtualization, IOMMU &amp; shared memory</span><span class="area-count">6 commits · 2021–2026</span></summary>
+        <p class="area-desc">Trusted-VM (TVM) code under the SDE VM config, event-thread flush before VM release, iommu_sid_switch, the CTL hypervisor property, secure context banks for LSR and DCP GMU shared memory.</p>
+        <ol class="commits">
+          <li><time datetime="2026-07-02">Jul 2, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-devicetree/-/commit/6c2658ee7fb6ea4e1fd3581cf76b89868f4471c2">ARM: dts: msm: lsr: add secure context banks for LSR</a><span class="repo">display-devicetree</span></li>
+          <li><time datetime="2026-05-12">May 12, 2026</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/efda1331895c409761cd818b9296cf034ef8420b">disp: msm: sde: add support for dcp gmu shared memory</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2024-12-18">Dec 18, 2024</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-devicetree/-/commit/8250ff36ef4065c5a1a3f91eebf516cfdc80dbb2">ARM: dts: qcom: add ctl hyp property to mdss_mdp device</a><span class="repo">display-devicetree</span></li>
+          <li><time datetime="2024-01-19">Jan 19, 2024</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/1f6e2107ca562642df01c15ea65c934b3df4f346">disp: msm: replace iommu_attach/detach with iommu_sid_switch</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2022-11-08">Nov 8, 2022</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/3128c30a234bff0957e001558223611716d20836">disp: msm: sde: flush event thread workqueue before vm release</a><span class="repo">display-drivers</span></li>
+          <li><time datetime="2021-10-25">Oct 25, 2021</time><a href="https://git.codelinaro.org/clo/la/platform/vendor/opensource/display-drivers/-/commit/c6b0d1fbe9d3894eab8bfa2a8588ea3fdaaf8c0d">disp: msm: sde: Move TVM related code under SDE VM config</a><span class="repo">display-drivers</span></li>
+        </ol>
+      </details>
+  </section>
+
+  <footer>
+    <span>© 2026 Karthik Andhavarapu</span>
+    <span>Commit data from <a href="https://git.codelinaro.org">git.codelinaro.org</a> · experience from my résumé and <a href="https://www.linkedin.com/in/karthik-andhavarapu-37a91a59">LinkedIn</a></span>
+  </footer>
+</div>
+<script>
+  // Expand every section when printing so all commits appear on paper; "Expand all" toggle.
+  (function(){var d=document.querySelectorAll('details'),s=[];
+    addEventListener('beforeprint',function(){s=[].map.call(d,function(e){var o=e.open;e.open=true;return o})});
+    addEventListener('afterprint',function(){d.forEach(function(e,i){e.open=s[i]})});
+    var b=document.querySelector('button.toggle');
+    function sync(){var all=[].every.call(d,function(e){return e.open});b.textContent=all?'Collapse all':'Expand all';b.setAttribute('aria-pressed',all)}
+    b.addEventListener('click',function(){var all=[].every.call(d,function(e){return e.open});d.forEach(function(e){e.open=!all});sync()});
+    d.forEach(function(e){e.addEventListener('toggle',sync)});
+    document.querySelectorAll('.toc a').forEach(function(a){a.addEventListener('click',function(){var t=document.querySelector(a.getAttribute('href'));if(t)t.open=true})});})();
+</script>
+</body>
+</html>
